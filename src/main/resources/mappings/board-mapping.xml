@@ -3,24 +3,4 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="BoardDAO">
 
-<resultMap type="board" id="board">
-	<id property="number" column="ARTICLE_NO" />
-	<result property="id" column="WRITER_ID" />
-	<result property="name" column="WRITER_NAME" />
-	<result property="title" column="TITLE" />
-	<result property="regDate" column="REGDATE" />
-	<result property="modDate" column="MODDATE" />
-	<result property="read_cnt" column="READ_CNT" />
-	<result property="content" column="CONTENT" />
-</resultMap>
-
-<select id="getBoardList" resultMap="board">
-		SELECT *
-		FROM DEV_BOARD
-		ORDER BY SEQ DESC
-</select>
-
-
-
-
 </mapper>

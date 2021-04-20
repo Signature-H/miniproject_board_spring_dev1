@@ -1,18 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>회원가입</title>
-<style type="text/css">
-body {
-	text-align: center;
-}
-</style>
+<link rel="stylesheet" href="<c:url value="/resources/css/normalbody.css"/>">
 </head>
 <body>
+<!-- 상단 고정바 -->
+	<header>
+		<span id="icon"><a href="getBoardList.jsp">메인으로</a></span>
+	</header>
 
+<div id="contents">
 	<h1>회원가입</h1>
 	<hr>
 	<!-- <form action="joinMember.do" method="post"> -->
@@ -50,5 +52,6 @@ body {
 		</table>
 	</form>
 	<hr>
+</div>
 </body>
 </html>
