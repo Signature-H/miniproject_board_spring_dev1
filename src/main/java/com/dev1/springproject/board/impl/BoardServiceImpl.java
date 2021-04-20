@@ -1,7 +1,21 @@
 package com.dev1.springproject.board.impl;
 
-import com.dev1.springproject.board.BoardService;
+import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.dev1.springproject.board.BoardService;
+import com.dev1.springproject.board.BoardVO;
+
+@Service("boardService")
 public class BoardServiceImpl implements BoardService{
+@Autowired
+	private BoardDAO boardDAO;
+
+@Override
+	public List<BoardVO> getBoardList(BoardVO vo) {
+		return boardDAO.getBoardList(vo);
+	}
 
 }
