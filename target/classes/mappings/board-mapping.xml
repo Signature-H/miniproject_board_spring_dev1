@@ -45,7 +45,7 @@
 
 <select id="getBoardList" resultType="board">
 	SELECT * 
-	FORM BOARD
+	FROM BOARD
 	ORDER BY SEQ DESC
 </select>
 
