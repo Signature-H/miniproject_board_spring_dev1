@@ -24,7 +24,7 @@
 
 <!-- 실제 body -->
 	<div id="b_contents">
-	<input type="button" value="새 글 등록"><br/>
+	<a href="write.do"><input type="button" value="새 글 등록"></a><br/>
 		<!-- 검색 -->
 		<form action="getBoardList.jsp">
 			<table border="1"

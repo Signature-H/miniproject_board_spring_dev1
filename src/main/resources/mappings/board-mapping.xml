@@ -16,15 +16,15 @@
 
 <insert id="insertBoard">
 	INSERT INTO DEV_BOARD(
-						ARTICLE_NO
-						,WRITER_ID
-						,WRITER_NAME
+						NUMBER
+						,ID
+						,NAME
 						,TITLE
 						,REGDATE
 						,MODDATE
 						,READ_CNT
 						,CONTENT)
-				VALUES(( SELECT NVL(MAX(ARTICLE_NO), 
+				VALUES((SELECT NVL(MAX(ARTICLE_NO), 
 							0)+1 FROM DEV_BOARD)
 						,#{id}
 						,#{name}

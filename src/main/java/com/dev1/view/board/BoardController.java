@@ -14,10 +14,10 @@ public class BoardController {
 	@Autowired
 	private BoardService boardService;
 	
-	//±Û µî·Ï
+	//ï¿½ï¿½ ï¿½ï¿½ï¿½
 	@RequestMapping(value = "/write.do", method = RequestMethod.GET)
 	public String InsertForm(BoardVO vo) {
-		return "writeArticleForm.jsp";
+		return "writeBoard.jsp";
 	}
 	
 	@RequestMapping(value = "/write.do", method = RequestMethod.POST)
@@ -28,11 +28,11 @@ public class BoardController {
 	
 	
 	
-	//±Û ¸ñ·Ï °Ë»ö
+	//ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 	@RequestMapping("/list.do")
 	public String getBoardList(BoardVO vo, Model model) {
-		//Model Á¤º¸ ÀúÀå
+		//Model ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	model.addAttribute("boardList", boardService.getBoardList(vo));
-	return "getBoardList.jsp"; // view ÀÌ¸§ ¸®ÅÏ
+	return "getBoardList.jsp"; // view ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 }

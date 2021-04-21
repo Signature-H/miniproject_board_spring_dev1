@@ -5,11 +5,11 @@ import java.util.Date;
 // DEV_BOARD ���̺�
 public class BoardVO {
 
-	// ARTICLE_NO 
+	// NUMBER 
 	private int number; 
-	// WRITER_ID
+	// ID
 	private String id;
-	// WRITER_NAME
+	// NAME
 	private String name; 
 	// TITLE
 	private String title;
