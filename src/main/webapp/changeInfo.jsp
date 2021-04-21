@@ -16,7 +16,7 @@
 	</header>
 	
 	<!-- 실제 body -->
-<div id="contents">
+<div id="b_contents">
 <table border="1" style="border-spacing: 0; padding: 0; margin: auto; width: 600px;">
 	<tr>
 	<td>아이디</td><td align="left">userid</td>

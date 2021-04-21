@@ -16,7 +16,7 @@
 	</header>
 
 <!-- 실제 body -->
-	<div id="contents">
+	<div id="b_contents">
 		<h1>로그인</h1>
 		<hr>
 		<!-- <form action="login.do" method="post"> -->

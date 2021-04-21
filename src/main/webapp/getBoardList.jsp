@@ -21,7 +21,8 @@
 	</header>
 
 <!-- 실제 body -->
-	<div id="contents">
+	<div id="b_contents">
+	<input type="button" value="새 글 등록">
 		<!-- 검색 -->
 		<form action="getBoardList.jsp">
 			<table border="1"
