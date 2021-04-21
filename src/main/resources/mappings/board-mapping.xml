@@ -4,9 +4,9 @@
 <mapper namespace="BoardDAO">
 
 <resultMap id="BoardVO" type="board">
-	<result property="number" column="ARTICLE_NO" />
-	<result property="id" column="WRITER_ID" />
-	<result property="name" column="WRITER_NAME" />
+	<result property="number" column="NUMBER" />
+	<result property="id" column="ID" />
+	<result property="name" column="NAME" />
 	<result property="title" column="TITLE" />
 	<result property="regDate" column="REGDATE" />
 	<result property="modDate" column="MODDATE" />
@@ -16,15 +16,15 @@
 
 <insert id="insertBoard">
 	INSERT INTO DEV_BOARD(
-						ARTICLE_NO
-						,WRITER_ID
-						,WRITER_NAME
+						NUMBER
+						,ID
+						,NAME
 						,TITLE
 						,REGDATE
 						,MODDATE
 						,READ_CNT
 						,CONTENT)
-				VALUES(( SELECT NVL(MAX(ARTICLE_NO), 
+				VALUES((SELECT NVL(MAX(ARTICLE_NO), 
 							0)+1 FROM DEV_BOARD)
 						,#{id}
 						,#{name}
@@ -36,9 +36,7 @@
 </insert>
 
 <select id="getBoardList" resultType="board">
-	SELECT * 
-	FORM BOARD
-	ORDER BY SEQ DESC
+	SELECT * FROM DEV_BOARD	ORDER BY NUMBER DESC
 </select>
 
 

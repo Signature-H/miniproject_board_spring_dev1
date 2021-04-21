@@ -11,7 +11,7 @@
 <body>
 <!-- 상단 고정바 -->
 	<header>
-		<span id="icon"><a href="getBoardList.jsp">메인으로</a></span>
+		<span id="icon"><a href="list.do">메인으로</a></span>
 	</header>
 	
 <!-- 실제 body -->
