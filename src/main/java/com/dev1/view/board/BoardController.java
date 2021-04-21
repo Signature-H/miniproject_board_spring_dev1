@@ -1,8 +1,14 @@
 package com.dev1.view.board;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.naming.directory.SearchControls;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -26,6 +32,25 @@ public class BoardController {
 		return "list.do";
 	}
 	
+	
+	
+	
+	//글 상세 조회
+	@RequestMapping("/read.do")
+	public String getBoard(BoardVO vo, Model model) {
+		model.addAttribute("board");
+		return "readArticleForm.jsp";
+	}
+	
+	//검색 조건 목록 설정
+	@ModelAttribute("conditionMap")
+	public Map<String, String> SearchConditionMap(){
+		Map<String, String> conditionMap = new HashMap<String, String>();
+		conditionMap.put("제목", "TITLE");
+		conditionMap.put("내용", "CONTENT");
+		return conditionMap;
+		
+	}
 	
 	
 	//글 목록 검색

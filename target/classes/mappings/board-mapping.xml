@@ -35,6 +35,14 @@
 						,#{content}
 </insert>
 
+
+<select id="getBoard" resultType="board">
+	SELECT * 
+	FORM BOARD
+	WHERE SEQ=#{SEQ}
+</select>
+
+
 <select id="getBoardList" resultType="board">
 	SELECT * 
 	FORM BOARD

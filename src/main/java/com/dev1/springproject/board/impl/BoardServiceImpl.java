@@ -18,9 +18,20 @@ public class BoardServiceImpl implements BoardService{
 		boardDAO.insertBoard(vo);
 	}
 
+	public BoardVO getBoardVO(BoardVO vo) {
+		return boardDAO.getBoard(vo);
+	}
+	
+	public void getBoard(BoardVO vo) {
+	}
+	
 	public List<BoardVO> getBoardList(BoardVO vo) {
 		return boardDAO.getBoardList(vo);
 	}
+
+
+
+
 
 
 

@@ -20,6 +20,12 @@ public class BoardDAO {
 	
 	
 	
+	public BoardVO getBoard(BoardVO vo) {
+		System.out.println("==> Mybatis로 getBoard() 기능 처리");
+		return (BoardVO) mybatis.selectOne("BoardDAO.getBoard", vo);
+	}
+	
+	
 	public List<BoardVO> getBoardList(BoardVO vo){
 		System.out.println("==> Mybatis로 getBoardList() 기능 처리");
 		return mybatis.selectList("BoardDAO.getBoardList", vo);
