@@ -2,7 +2,7 @@ package com.dev1.springproject.board;
 
 import java.util.Date;
 
-// DEV_BOARD Å×ÀÌºí
+// DEV_BOARD ï¿½ï¿½ï¿½Ìºï¿½
 public class BoardVO {
 
 	// ARTICLE_NO 
@@ -69,5 +69,12 @@ public class BoardVO {
 	}
 	public void setContent(String content) {
 		this.content = content;
+	}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "BoardVO[number : " + number + " | id : " + id + " | name : " + name +
+				" | title : " + title + " | regDate : " + regDate + " | modDate : " + modDate +
+				"| read_cnt : " + read_cnt + " | content : " + content + "]";
 	}
 }

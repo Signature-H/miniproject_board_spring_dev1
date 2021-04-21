@@ -10,7 +10,7 @@
 <body>
 <!-- 상단 고정바 -->
 	<header>
-		<span id="icon"><a href="getBoardList.jsp">메인으로</a></span> <span
+		<span id="icon"><a href="list.do">메인으로</a></span> <span
 			id="login_join"><a href="login.jsp"><input type="button"
 				value="로그인"></a> <a href="joinMember.jsp"><input
 				type="button" value="회원가입"></a> 
