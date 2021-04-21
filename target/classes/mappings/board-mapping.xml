@@ -38,7 +38,7 @@
 
 <select id="getBoard" resultType="board">
 	SELECT * 
-	FORM BOARD
+	FROM BOARD
 	WHERE SEQ=#{SEQ}
 </select>
 
