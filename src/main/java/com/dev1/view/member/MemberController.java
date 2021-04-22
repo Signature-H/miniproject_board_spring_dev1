@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.dev1.springproject.member.MemberService;
 import com.dev1.springproject.member.MemberVO;
-import com.dev1.springproject.member.impl.MemberDAO;
 
 @Controller
 @SessionAttributes("member")
@@ -31,10 +30,11 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="/login.do", method=RequestMethod.POST)
-	public String login(MemberVO vo, MemberDAO memberDAO,Model model){
+	public String login(MemberVO vo, Model model){
 		System.out.println("로그인 인증 처리");
-		model.addAttribute("member",memberservice.select(vo));
-		if(memberservice.select(vo) != null) return "getBoardList.do";
+		MemberVO mvo=memberservice.select(vo);
+		model.addAttribute("member",mvo);
+		if(mvo != null) return "getBoardList.do";
 		else return "login.jsp";
 	}
 
