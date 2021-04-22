@@ -2,6 +2,7 @@ package com.dev1.view.member;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -21,18 +22,21 @@ public class MemberController {
 	memberservice.insert(vo);
 	return "login.do";
 	}
-	//로그인
+	
+	//로그인(글조회)
 	@RequestMapping(value="/login.do", method=RequestMethod.GET)
 	public String loginView(MemberVO vo) {
 		System.out.println("로그인 화면으로 이동");
-		memberservice.select(vo);
 		return "login.jsp";
 	}
 	
 	@RequestMapping(value="/login.do", method=RequestMethod.POST)
-	public String login(MemberVO vo, MemberDAO memberDAO) {
+	public String login(MemberVO vo, MemberDAO memberDAO,Model model){
 		System.out.println("로그인 인증 처리");
-		if(memberDAO.select(vo) != null) return "getBoardList.do";
+		model.addAttribute("member",memberservice.select(vo));
+		if(memberservice.select(vo) != null) return "getBoardList.do";
 		else return "login.jsp";
 	}
+
+	
 }
