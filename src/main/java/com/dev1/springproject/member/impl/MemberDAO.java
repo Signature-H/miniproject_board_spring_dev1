@@ -14,8 +14,8 @@ public class MemberDAO {
 		mybatis.insert("MemberDAO.insertMember",vo);
 
 	}
-	public void select(MemberVO vo) {
+	public MemberVO select(MemberVO vo) {
 		System.out.println("멤버조회");
-		mybatis.selectOne("MemberDAO.selectMember",vo);
+		return (MemberVO)mybatis.selectOne("MemberDAO.selectMember",vo);
 	}
 }
