@@ -38,14 +38,14 @@
 
 <select id="getBoard" resultType="board">
 	SELECT * 
-	FROM BOARD
+	FROM DEV_BOARD
 	WHERE SEQ=#{SEQ}
 </select>
 
 
 <select id="getBoardList" resultType="board">
 	SELECT * 
-	FROM BOARD
+	FROM DEV_BOARD
 	ORDER BY SEQ DESC
 </select>
 
