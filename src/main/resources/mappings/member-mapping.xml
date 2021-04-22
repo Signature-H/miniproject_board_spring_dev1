@@ -20,7 +20,7 @@ values(#{id},#{name},#{password},#{regDate},#{eMail},#{phoneNumber1},#{phoneNumb
 </insert>
 
 <select id="selectMember">
-SELECT * FROM DEV_MEMBER WHERE WHERE ID= #{id} AND PASSWORD=#{password}
+SELECT * FROM DEV_MEMBER WHERE ID= #{id} AND PASSWORD=#{password}
 </select>
 
 <update id="updateMember">
