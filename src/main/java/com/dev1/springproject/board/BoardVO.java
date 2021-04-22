@@ -2,7 +2,7 @@ package com.dev1.springproject.board;
 
 import java.util.Date;
 
-// DEV_BOARD ���̺�
+// DEV_BOARD TABLE
 public class BoardVO {
 
 	// NUMBER 
