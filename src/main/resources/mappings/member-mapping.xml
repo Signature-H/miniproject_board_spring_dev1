@@ -15,16 +15,18 @@
 </resultMap>
 
 <insert id="insertMember">
-insert into dev_member(id,name,password,regdate,email,phonenumber1,phonenumber2,phonenumber3)
-values(?,?,?,?,?,?,?,?)
+INSERT INTO DEV_MEMBER(ID,NAME,PASSWORD,REGDATE,EMAIL,PHONENUMBER1,PHONENUMBER2,PHONENUMBER3)
+values(#{id},#{name},#{password},#{regDate},#{eMail},#{phoneNumber1},#{phoneNumber2},#{phoneNumber3})
 </insert>
 
 <select id="selectMember">
-select * from dev_member where id=?,password=?;
+SELECT * FROM DEV_MEMBER WHERE WHERE ID= #{id},PASSWORD=#{password}
 </select>
 
 <update id="updateMember">
-update dev_member set id=?,name=?,password=?,regDate=?,email=?,phoneNumber1=?,phoneNumber2,phoneNumber3 where id=? 
+UPDATE DEV_MEMBER SET ID = #{id},NAME = #{name},
+PASSWORD = #{password},REGDATE = #{regDate},EMAIL = #{eMail},PHONENUMBER1 = #{phoneNumber1},
+PHONENUMBER2 = #{phoneNumber2},PHONENUMBER3 =#{phoneNumber3} 
 </update>
 
 </mapper>
