@@ -16,9 +16,16 @@ public class BoardDAO {
 	public void insertBoard(BoardVO vo) {
 		System.out.println("==> Mybatis로 insertBoard() 기능 처리");
 		mybatis.insert("BoardDAO.insertBoard", vo);
+		mybatis.commit();
 	}
 	
 	
+	public void deleteBoard(BoardVO vo) {
+		System.out.println("==> Mybatis로 deleteBoard() 기능 처리");
+		mybatis.delete("BoardDAO.deleteBoard", vo);
+		mybatis.commit();
+		
+	}
 	
 	public BoardVO getBoard(BoardVO vo) {
 		System.out.println("==> Mybatis로 getBoard() 기능 처리");

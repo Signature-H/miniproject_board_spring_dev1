@@ -6,6 +6,9 @@ public interface BoardService {
 
 	//글등록
 	public void insertBoard(BoardVO vo);
+	
+	//글삭제
+	public void deleteBoard(BoardVO vo);
 
 	//글 상세 조회
 	public void getBoard(BoardVO vo);

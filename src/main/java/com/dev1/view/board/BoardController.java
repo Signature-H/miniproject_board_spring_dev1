@@ -32,7 +32,12 @@ public class BoardController {
 		return "list.do";
 	}
 	
-	
+	//글 삭제
+	@RequestMapping("/deleteBoard.do")
+	public String deleteBoard(BoardVO vo) {
+		boardService.deleteBoard(vo);
+		return "getBoardList.do";
+	}
 	
 	
 	//글 상세 조회

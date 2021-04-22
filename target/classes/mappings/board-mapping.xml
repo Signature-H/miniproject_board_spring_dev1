@@ -36,6 +36,13 @@
 </insert>
 
 
+
+<delete id="deleteBoard">
+	DELETE DEV_BOARD
+	WHERE SEQ=#{SEQ}
+</delete>
+
+
 <select id="getBoard" resultType="board">
 	SELECT * 
 	FROM DEV_BOARD
