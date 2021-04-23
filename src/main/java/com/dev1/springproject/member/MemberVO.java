@@ -2,7 +2,7 @@ package com.dev1.springproject.member;
 
 import java.util.Date;
 
-// DEV_MEMBER Å×ÀÌºí
+// DEV_MEMBER ï¿½ï¿½ï¿½Ìºï¿½
 public class MemberVO {
 	
 	// ID
@@ -16,11 +16,11 @@ public class MemberVO {
 	// EMAIL
 	private String eMail;
 	// PHONENUMBER1
-	private int phoneNumber1;
+	private String phoneNumber1;
 	// PHONENUMBER2
-	private int phoneNumber2;
+	private String phoneNumber2;
 	// PHONENUMBER3
-	private int phoneNumber3;
+	private String phoneNumber3;
 	
 	public String getId() {
 		return id;
@@ -52,22 +52,22 @@ public class MemberVO {
 	public void seteMail(String eMail) {
 		this.eMail = eMail;
 	}
-	public int getPhoneNumber1() {
+	public String getPhoneNumber1() {
 		return phoneNumber1;
 	}
-	public void setPhoneNumber1(int phoneNumber1) {
+	public void setPhoneNumber1(String phoneNumber1) {
 		this.phoneNumber1 = phoneNumber1;
 	}
-	public int getPhoneNumber2() {
+	public String getPhoneNumber2() {
 		return phoneNumber2;
 	}
-	public void setPhoneNumber2(int phoneNumber2) {
+	public void setPhoneNumber2(String phoneNumber2) {
 		this.phoneNumber2 = phoneNumber2;
 	}
-	public int getPhoneNumber3() {
+	public String getPhoneNumber3() {
 		return phoneNumber3;
 	}
-	public void setPhoneNumber3(int phoneNumber3) {
+	public void setPhoneNumber3(String phoneNumber3) {
 		this.phoneNumber3 = phoneNumber3;
 	}
 }
