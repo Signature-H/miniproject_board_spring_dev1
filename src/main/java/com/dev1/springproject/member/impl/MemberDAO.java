@@ -19,9 +19,9 @@ public class MemberDAO {
 		System.out.println("멤버조회");
 		return (MemberVO)mybatis.selectOne("MemberDAO.selectMember",vo);
 	}
-	public void delete(MemberVO vo) {
-		System.out.println("멤버삭제");
-		mybatis.delete("MemberDAO.deleteMember",vo);
+	public void changeMyInfo(MemberVO vo) {
+		System.out.println("내정보변경");
+		mybatis.delete("MemberDAO.changeMyInfo",vo);
 	}
 	
 }

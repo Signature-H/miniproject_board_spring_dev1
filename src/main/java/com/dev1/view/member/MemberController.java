@@ -46,15 +46,32 @@ public class MemberController {
 		session.invalidate();
 		return "login.jsp";
 	}
-	
+	//마이페이지
 	@RequestMapping("/MyInfo.do")
 	public String MyInfo(@ModelAttribute("member") MemberVO vo){
+//		System.out.println("이름:"+vo.getName());
+//		System.out.println("아이디:"+vo.getId());
+//		System.out.println("비밀번호:"+vo.getPassword());
+//		System.out.println("핸드폰번호:"+vo.getPhoneNumber1()+"-"+vo.getPhoneNumber2()+"-"+vo.getPhoneNumber3());
+//		System.out.println("이메일:"+vo.geteMail());
+//		System.out.println("등록일:"+vo.getRegDate());
+		return "MyInfo.jsp";
+	}
+	
+	@RequestMapping("/MyInfo.do")
+	public String changeMyInfoView(@ModelAttribute("member") MemberVO vo) {
 		System.out.println("이름:"+vo.getName());
 		System.out.println("아이디:"+vo.getId());
 		System.out.println("비밀번호:"+vo.getPassword());
 		System.out.println("핸드폰번호:"+vo.getPhoneNumber1()+"-"+vo.getPhoneNumber2()+"-"+vo.getPhoneNumber3());
 		System.out.println("이메일:"+vo.geteMail());
 		System.out.println("등록일:"+vo.getRegDate());
+		return "changeMyInfo.jsp";
+	}
+	
+	@RequestMapping("/changeMyInfo.do")
+	public String changeMyInfo(@ModelAttribute("member") MemberVO vo) {
+		memberservice.changeMyInfo(vo);
 		return "MyInfo.jsp";
 	}
 		
