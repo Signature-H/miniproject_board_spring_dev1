@@ -30,7 +30,7 @@ DELETE FROM DEV_MEMBER WHERE ID= #{ID} AND PASSWORD=#{password}
 <update id="changeMyInfo">
 UPDATE DEV_MEMBER SET ID = #{id},NAME = #{name},
 PASSWORD = #{password},REGDATE = #{regDate},EMAIL = #{eMail},PHONENUMBER1 = #{phoneNumber1},
-PHONENUMBER2 = #{phoneNumber2},PHONENUMBER3 =#{phoneNumber3} 
+PHONENUMBER2 = #{phoneNumber2},PHONENUMBER3 =#{phoneNumber3} WHERE ID=#{id} 
 </update>
 
 </mapper>
