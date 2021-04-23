@@ -2,7 +2,7 @@ package com.dev1.springproject.member;
 
 import java.util.Date;
 
-// DEV_MEMBER ���̺�
+// DEV_MEMBER TABLE
 public class MemberVO {
 	
 	// ID
