@@ -21,7 +21,7 @@ public class MemberDAO {
 	}
 	public void changeMyInfo(MemberVO vo) {
 		System.out.println("내정보변경");
-		mybatis.delete("MemberDAO.changeMyInfo",vo);
+		mybatis.update("MemberDAO.changeMyInfo",vo);
 	}
 	
 }
