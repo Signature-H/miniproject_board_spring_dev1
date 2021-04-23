@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="userDAO">
+<mapper namespace="MemberDAO">
 
 <resultMap id="MemberVO" type="member" >
 <id property="id" column="ID"/>
@@ -22,6 +22,10 @@ values(#{id},#{name},#{password},#{regDate},#{eMail},#{phoneNumber1},#{phoneNumb
 <select id="selectMember">
 SELECT * FROM DEV_MEMBER WHERE ID= #{id} AND PASSWORD=#{password}
 </select>
+
+<delete id="deleteMember">
+DELETE FROM DEV_MEMBER WHERE ID= #{ID} AND PASSWORD=#{password} 
+</delete>
 
 <update id="updateMember">
 UPDATE DEV_MEMBER SET ID = #{id},NAME = #{name},
