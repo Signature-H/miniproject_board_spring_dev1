@@ -58,7 +58,8 @@
 				</tr>
 				<c:if test="${board.name eq member.name}">
 				<tr>
-					<td colspan="2"><input type="submit" value="글 수정하기"></td>
+					<td colspan="2"><input type="submit" value="글 수정하기">
+					<a href="deleteArticle.do?number=${board.number}"><input type="button" value="글 삭제하기"></a></td>
 					</tr>
 				</c:if>
 			</table>

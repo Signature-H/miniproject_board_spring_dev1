@@ -18,16 +18,23 @@ public class BoardDAO {
 		mybatis.insert("BoardDAO.insertBoard", vo);
 	}
 	
-	public BoardVO getBoard(BoardVO vo)
-	{
-		System.out.println("==> Call getBoard() method to mybatis");
-		return mybatis.selectOne("BoardDAO.getBoard", vo);
-	}
-	
 	public void updateBoard(BoardVO vo)
 	{
 		System.out.println("==> Call updateBoard() method to mybatis");
 		mybatis.update("BoardDAO.updateBoard", vo);
+	}
+
+	public void deleteBoard(BoardVO vo)
+	{
+		System.out.println("==> Call deleteBoard() method to mybatis");
+		mybatis.delete("BoardDAO.deleteBoard", vo);
+	}
+	
+	public BoardVO getBoard(BoardVO vo)
+	{
+		System.out.println("==> Call getBoard() method to mybatis");
+		mybatis.selectOne("BoardDAO.readArticle", vo);
+		return mybatis.selectOne("BoardDAO.getBoard", vo);
 	}
 	
 	public List<BoardVO> getBoardList(BoardVO vo){

@@ -47,4 +47,12 @@
 	UPDATE DEV_BOARD SET TITLE=#{title}, MODDATE=#{modDate}, CONTENT=#{content} WHERE NUMBER=#{number}
 </update>
 
+<update id="readArticle">
+	UPDATE DEV_BOARD SET READ_CNT=READ_CNT+1 WHERE NUMBER=#{number}
+</update>
+
+<delete id="deleteBoard">
+	DELETE FROM DEV_BOARD WHERE NUMBER=#{number}
+</delete>
+
 </mapper>

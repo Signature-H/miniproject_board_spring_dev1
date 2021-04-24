@@ -1,6 +1,5 @@
 package com.dev1.view.member;
 
-
 import java.sql.Date;
 
 import javax.servlet.http.HttpSession;
@@ -21,64 +20,71 @@ import com.dev1.springproject.member.MemberVO;
 public class MemberController {
 	@Autowired
 	private MemberService memberservice;
-	//?�원가??
-	@RequestMapping(value="/joinMember.do",method=RequestMethod.GET)
+
+	// joinMember
+	@RequestMapping(value = "/joinMember.do", method = RequestMethod.GET)
 	public String joinView(MemberVO vo) {
-		System.out.println("?�원가?? ?�면?�로 ?�동");
+		System.out.println("==> Call joinview() Get method");
 		return "login.jsp";
 	}
-	@RequestMapping(value="/joinMember.do",method=RequestMethod.POST)
+
+	@RequestMapping(value = "/joinMember.do", method = RequestMethod.POST)
 	public String join(MemberVO vo) {
-	System.out.println("?�원가?? 처리");
 		long timeInMilliSeconds = new java.util.Date().getTime();
 		Date now = new Date(timeInMilliSeconds);
 		vo.setRegDate(now);
-	memberservice.insert(vo);
-	return "list.do";
+		memberservice.insert(vo);
+		return "list.do";
 	}
-		
-	//로그??
-	@RequestMapping(value="/login.do", method=RequestMethod.GET)
+
+	// login
+	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
 	public String loginView(MemberVO vo) {
-		System.out.println("로그?? ?�면?�로 ?�동");
+		System.out.println("==> Call loginView() Get method");
 		return "login.jsp";
-	}	
-	@RequestMapping(value="/login.do", method=RequestMethod.POST)
-	public String login(MemberVO vo, HttpSession session){
-		System.out.println("로그?? ?�증 처리");
-		MemberVO mvo = memberservice.select(vo);
-		session.setAttribute("member",mvo);
-		if(mvo != null) return "list.do";
-		else return "login.jsp";
 	}
-	//로그?�웃
+
+	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
+	public String login(MemberVO vo, HttpSession session) {
+		MemberVO mvo = memberservice.select(vo);
+		session.setAttribute("member", mvo);
+		if (mvo != null)
+			return "list.do";
+		else
+			return "login.jsp";
+	}
+
+	// logout
 	@RequestMapping("/logout.do")
 	public String logout(HttpSession session) {
 		session.setAttribute("member", null);
 		memberservice.logout(session);
 		return "list.do";
 	}
-	//마이?�이지
+
+	// MyInfo
 	@RequestMapping("/MyInfo.do")
-	public String MyInfo(@ModelAttribute("member") MemberVO vo){
-		System.out.println("?�름:"+vo.getName());
-		System.out.println("?�이??:"+vo.getId());
-		System.out.println("비�?번호:"+vo.getPassword());
-		System.out.println("?�드?�번??:"+vo.getPhoneNumber1()+"-"+vo.getPhoneNumber2()+"-"+vo.getPhoneNumber3());
-		System.out.println("?�메??:"+vo.geteMail());
-		System.out.println("?�록??:"+vo.getRegDate());
+	public String MyInfo(@ModelAttribute("member") MemberVO vo) {
 		return "MyInfo.jsp";
 	}
-	
-	@RequestMapping(value="/changeMyInfoView.do",method = RequestMethod.GET)
+
+	// changeMyInfo
+	@RequestMapping(value = "/changeMyInfo.do", method = RequestMethod.GET)
 	public String changeMyInfoView(MemberVO vo) {
+		System.out.println("==> Call changeMyInfoView Get Method");
 		return "changeMyInfo.jsp";
 	}
-	
-	@RequestMapping(value ="/changeMyInfo.do",method = RequestMethod.POST)
+
+	@RequestMapping(value = "/changeMyInfo.do", method = RequestMethod.POST)
 	public String changeMyInfo(@ModelAttribute("member") MemberVO vo) {
-		memberservice.changeMyInfo(vo);
-		return "MyInfo.jsp";
-	}
 		
+		if(vo.getPassword() == null || vo.getPassword().isEmpty())
+		{
+			return "changeMyInfo.jsp";
+		}
+		
+		memberservice.changeMyInfo(vo);
+		return "myPage.jsp";
+	}
+
 }

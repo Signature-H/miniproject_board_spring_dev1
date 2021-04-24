@@ -29,11 +29,11 @@ public class BoardController {
 	
 	@RequestMapping(value = "/writeArticle.do", method = RequestMethod.POST)
 	public String InsertBoard(BoardVO vo) {
-		vo.setRead_cnt(0);
 		long timeInMilliSeconds = new java.util.Date().getTime();
 		Date now = new Date(timeInMilliSeconds);
 		vo.setRegDate(now);
 		vo.setModDate(now);
+		vo.setRead_cnt(0);
 		boardService.insertBoard(vo);
 		return "list.do";
 	}
@@ -72,5 +72,14 @@ public class BoardController {
 		//Model ���� ����
 	model.addAttribute("boardList", boardService.getBoardList(vo));
 	return "getBoardList.jsp"; // view �̸� ����
+	}
+	
+	//Delete Article
+	@RequestMapping(value="/deleteArticle.do", params = {"number"})
+	public String deleteBoard(BoardVO vo, @RequestParam("number") int number)
+	{
+		vo.setNumber(number);
+		boardService.deleteBoard(vo);
+		return "redirect:list.do";
 	}
 }

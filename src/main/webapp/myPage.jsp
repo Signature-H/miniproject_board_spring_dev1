@@ -22,6 +22,7 @@
 	
 <!-- 실제 body -->
 <div id="b_contents">
+<form action="changeMyInfo.do">
 <table border="1" style="border-spacing: 0; padding: 0; margin: auto; width: 600px;">
 	<tr>
 	<td>아이디</td><td align="left">${member.id}</td>
@@ -37,7 +38,8 @@
 	<tr>
 </table>
 <br>
-<a href="changeInfo.jsp"><input type="button" value="정보 변경하기"></a>
+<input type="submit" value="정보 변경하기">
+</form>
 </div>
 
 </body>

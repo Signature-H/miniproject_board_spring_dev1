@@ -13,16 +13,16 @@ public class MemberDAO {
 	private SqlSessionTemplate mybatis;
 	
 	public void insert(MemberVO vo) {
-		System.out.println("멤버삽입");
+		System.out.println("==> Call insert() method to mybatis");
 		mybatis.insert("MemberDAO.insertMember",vo);
 
 	}
 	public MemberVO select(MemberVO vo) {
-		System.out.println("멤버조회");
+		System.out.println("==> Call select() method to mybatis");
 		return (MemberVO)mybatis.selectOne("MemberDAO.selectMember",vo);
 	}
 	public void changeMyInfo(MemberVO vo) {
-		System.out.println("내정보변경");
+		System.out.println("==> Call changeMyInfo() method to mybatis");
 		mybatis.update("MemberDAO.changeMyInfo",vo);
 	}
 	
