@@ -19,19 +19,24 @@ public class MemberController {
 	@Autowired
 	private MemberService memberservice;
 	//회원가입
-	@RequestMapping("/joinMember.do")
+	@RequestMapping(value="/joinMember.do",method=RequestMethod.GET)
+	public String joinView(MemberVO vo) {
+		System.out.println("회원가입 화면으로 이동");
+		return "login.jsp";
+	}
+	@RequestMapping(value="/joinMember.do",method=RequestMethod.POST)
 	public String join(MemberVO vo) {
+	System.out.println("회원가입 처리");
 	memberservice.insert(vo);
 	return "login.do";
 	}
-	
+		
 	//로그인
 	@RequestMapping(value="/login.do", method=RequestMethod.GET)
 	public String loginView(MemberVO vo) {
 		System.out.println("로그인 화면으로 이동");
 		return "login.jsp";
-	}
-	
+	}	
 	@RequestMapping(value="/login.do", method=RequestMethod.POST)
 	public String login(MemberVO vo, Model model){
 		System.out.println("로그인 인증 처리");
@@ -41,12 +46,12 @@ public class MemberController {
 		else return "login.jsp";
 	}
 	//로그아웃
-	@RequestMapping(value = "/logout.do")
+	@RequestMapping("/logout.do")
 	public String logout(HttpSession session) {
 		session.invalidate();
 		return "login.jsp";
 	}
-	
+	//마이페이지
 	@RequestMapping("/MyInfo.do")
 	public String MyInfo(@ModelAttribute("member") MemberVO vo){
 		System.out.println("이름:"+vo.getName());
@@ -55,6 +60,17 @@ public class MemberController {
 		System.out.println("핸드폰번호:"+vo.getPhoneNumber1()+"-"+vo.getPhoneNumber2()+"-"+vo.getPhoneNumber3());
 		System.out.println("이메일:"+vo.geteMail());
 		System.out.println("등록일:"+vo.getRegDate());
+		return "MyInfo.jsp";
+	}
+	
+	@RequestMapping(value="/changeMyInfoView.do",method = RequestMethod.GET)
+	public String changeMyInfoView(MemberVO vo) {
+		return "changeMyInfo.jsp";
+	}
+	
+	@RequestMapping(value ="/changeMyInfo.do",method = RequestMethod.POST)
+	public String changeMyInfo(@ModelAttribute("member") MemberVO vo) {
+		memberservice.changeMyInfo(vo);
 		return "MyInfo.jsp";
 	}
 		
