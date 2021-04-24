@@ -14,14 +14,24 @@ public class BoardDAO {
 	private SqlSessionTemplate mybatis;
 	
 	public void insertBoard(BoardVO vo) {
-		System.out.println("==> Mybatis로 insertBoard() 기능 처리");
+		System.out.println("==> Call insertBoard() method to mybatis");
 		mybatis.insert("BoardDAO.insertBoard", vo);
 	}
 	
+	public BoardVO getBoard(BoardVO vo)
+	{
+		System.out.println("==> Call getBoard() method to mybatis");
+		return mybatis.selectOne("BoardDAO.getBoard", vo);
+	}
 	
+	public void updateBoard(BoardVO vo)
+	{
+		System.out.println("==> Call updateBoard() method to mybatis");
+		mybatis.update("BoardDAO.updateBoard", vo);
+	}
 	
 	public List<BoardVO> getBoardList(BoardVO vo){
-		System.out.println("==> Mybatis로 getBoardList() 기능 처리");
+		System.out.println("==> Call getBoardList() method to mybatis");
 		return mybatis.selectList("BoardDAO.getBoardList", vo);
 	}
 

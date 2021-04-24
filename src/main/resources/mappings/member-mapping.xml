@@ -19,7 +19,7 @@ INSERT INTO DEV_MEMBER(ID,NAME,PASSWORD,REGDATE,EMAIL,PHONENUMBER1,PHONENUMBER2,
 values(#{id},#{name},#{password},#{regDate},#{eMail},#{phoneNumber1},#{phoneNumber2},#{phoneNumber3})
 </insert>
 
-<select id="selectMember">
+<select id="selectMember" resultType="member">
 SELECT * FROM DEV_MEMBER WHERE ID= #{id} AND PASSWORD=#{password}
 </select>
 

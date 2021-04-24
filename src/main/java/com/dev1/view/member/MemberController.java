@@ -1,5 +1,8 @@
 package com.dev1.view.member;
 
+
+import java.sql.Date;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,48 +21,52 @@ import com.dev1.springproject.member.MemberVO;
 public class MemberController {
 	@Autowired
 	private MemberService memberservice;
-	//회원가입
+	//?�원가??
 	@RequestMapping(value="/joinMember.do",method=RequestMethod.GET)
 	public String joinView(MemberVO vo) {
-		System.out.println("회원가입 화면으로 이동");
+		System.out.println("?�원가?? ?�면?�로 ?�동");
 		return "login.jsp";
 	}
 	@RequestMapping(value="/joinMember.do",method=RequestMethod.POST)
 	public String join(MemberVO vo) {
-	System.out.println("회원가입 처리");
+	System.out.println("?�원가?? 처리");
+		long timeInMilliSeconds = new java.util.Date().getTime();
+		Date now = new Date(timeInMilliSeconds);
+		vo.setRegDate(now);
 	memberservice.insert(vo);
-	return "login.do";
+	return "list.do";
 	}
 		
-	//로그인
+	//로그??
 	@RequestMapping(value="/login.do", method=RequestMethod.GET)
 	public String loginView(MemberVO vo) {
-		System.out.println("로그인 화면으로 이동");
+		System.out.println("로그?? ?�면?�로 ?�동");
 		return "login.jsp";
 	}	
 	@RequestMapping(value="/login.do", method=RequestMethod.POST)
-	public String login(MemberVO vo, Model model){
-		System.out.println("로그인 인증 처리");
+	public String login(MemberVO vo, HttpSession session){
+		System.out.println("로그?? ?�증 처리");
 		MemberVO mvo = memberservice.select(vo);
-		model.addAttribute("member",mvo);
-		if(mvo != null) return "getBoardList.do";
+		session.setAttribute("member",mvo);
+		if(mvo != null) return "list.do";
 		else return "login.jsp";
 	}
-	//로그아웃
+	//로그?�웃
 	@RequestMapping("/logout.do")
 	public String logout(HttpSession session) {
-		session.invalidate();
-		return "login.jsp";
+		session.setAttribute("member", null);
+		memberservice.logout(session);
+		return "list.do";
 	}
-	//마이페이지
+	//마이?�이지
 	@RequestMapping("/MyInfo.do")
 	public String MyInfo(@ModelAttribute("member") MemberVO vo){
-		System.out.println("이름:"+vo.getName());
-		System.out.println("아이디:"+vo.getId());
-		System.out.println("비밀번호:"+vo.getPassword());
-		System.out.println("핸드폰번호:"+vo.getPhoneNumber1()+"-"+vo.getPhoneNumber2()+"-"+vo.getPhoneNumber3());
-		System.out.println("이메일:"+vo.geteMail());
-		System.out.println("등록일:"+vo.getRegDate());
+		System.out.println("?�름:"+vo.getName());
+		System.out.println("?�이??:"+vo.getId());
+		System.out.println("비�?번호:"+vo.getPassword());
+		System.out.println("?�드?�번??:"+vo.getPhoneNumber1()+"-"+vo.getPhoneNumber2()+"-"+vo.getPhoneNumber3());
+		System.out.println("?�메??:"+vo.geteMail());
+		System.out.println("?�록??:"+vo.getRegDate());
 		return "MyInfo.jsp";
 	}
 	

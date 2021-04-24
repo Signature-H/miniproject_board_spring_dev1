@@ -1,5 +1,7 @@
 package com.dev1.springproject.member.impl;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,9 +20,13 @@ public class MemberServiceImpl implements MemberService {
 	public MemberVO select(MemberVO vo) {
 		return memberDAO.select(vo);
 	}
-	@Override
+	
 	public void changeMyInfo(MemberVO vo) {
 		memberDAO.changeMyInfo(vo);
+	}
+	@Override
+	public void logout(HttpSession session) {
+		memberDAO.logout(session);
 	}
 
 }

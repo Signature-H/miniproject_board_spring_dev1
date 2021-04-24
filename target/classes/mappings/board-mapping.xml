@@ -24,7 +24,7 @@
 						,MODDATE
 						,READ_CNT
 						,CONTENT)
-				VALUES((SELECT NVL(MAX(ARTICLE_NO), 
+				VALUES((SELECT NVL(MAX(NUMBER), 
 							0)+1 FROM DEV_BOARD)
 						,#{id}
 						,#{name}
@@ -32,12 +32,19 @@
 						,#{regDate}
 						,#{modDate}
 						,#{read_cnt}
-						,#{content}
+						,#{content})
 </insert>
 
 <select id="getBoardList" resultType="board">
 	SELECT * FROM DEV_BOARD	ORDER BY NUMBER DESC
 </select>
 
+<select id="getBoard" resultType="board">
+	SELECT * FROM DEV_BOARD WHERE NUMBER=#{number}
+</select>
+
+<update id="updateBoard">
+	UPDATE DEV_BOARD SET TITLE=#{title}, MODDATE=#{modDate}, CONTENT=#{content} WHERE NUMBER=#{number}
+</update>
 
 </mapper>

@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="u" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,19 +15,30 @@
 <body>
 	<!-- 상단 고정바 -->
 	<header>
-		<span id="icon"><a href="list.do">메인으로</a></span> <span
-			id="login_join"><a href="login.jsp"><input type="button"
+		<span id="icon"><a href="list.do">메인으로</a></span>
+		
+		<u:isLogin>
+		<span id="login_join">
+				<a href="myPage.jsp"><input	type="button" value="마이페이지"></a>
+				<a href="logout.do"><input type="button" value="로그아웃"></a>
+		</span>
+		</u:isLogin>
+		<u:notLogin>
+		<span id="login_join"><a href="login.jsp"><input type="button"
 				value="로그인"></a> <a href="joinMember.jsp"><input
 				type="button" value="회원가입"></a> 
-				<a href="myPage.jsp"><input	type="button" value="마이페이지"></a>
 				</span>
+		</u:notLogin>		
+		
 	</header>
 
 <!-- 실제 body -->
 	<div id="b_contents">
-	<a href="write.do"><input type="button" value="새 글 등록"></a><br/>
+	<u:isLogin>
+	<a href="writeArticle.do"><input type="button" value="새 글 등록"></a><br/>
+	</u:isLogin>
 		<!-- 검색 -->
-		<form action="getBoardList.jsp">
+		<form action="listArticle.do">
 			<table border="1"
 				style="border-spacing: 0; padding: 0; margin: auto; width: 700px;">
 				<tr>
@@ -52,7 +64,7 @@
 			<c:forEach items="${boardList}" var="board" >
 				<tr>
 					<td>${board.number}</td>
-					<td align="left"><a href="getBoard.jsp">${board.title}</a></td>
+					<td align="left"><a href="getArticle.do?number=${board.number}">${board.title}</a></td>
 					<td>${board.name}</td>
 					<td>${board.regDate}</td>
 					<td>${board.read_cnt}</td>

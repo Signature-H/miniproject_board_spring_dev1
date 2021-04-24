@@ -19,8 +19,8 @@
 	<div id="b_contents">
 		<h1>로그인</h1>
 		<hr>
-		<!-- <form action="login.do" method="post"> -->
-		<form action="getBoardList.jsp" method="post">
+		<form action="login.do" method="post">
+		<!-- <form action="getBoardList.jsp" method="post"> -->
 			<table border="1"
 				style="border-spacing: 0; padding: 0; margin: auto;">
 				<tr>
