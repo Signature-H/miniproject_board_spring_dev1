@@ -15,7 +15,7 @@
 		<span id="icon"><a href="list.do">메인으로</a></span>
 		<u:isLogin>
 		<span id="login_join">
-				<a href="logout.do"><button type="button">로그아웃</button></a>
+				<a href="logout.do"><input type="button" value="로그아웃"></a>
 		</span>
 		</u:isLogin>
 	</header>

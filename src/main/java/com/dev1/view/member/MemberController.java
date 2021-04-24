@@ -1,5 +1,8 @@
 package com.dev1.view.member;
 
+
+import java.sql.Date;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +24,11 @@ public class MemberController {
 	//회원가입
 	@RequestMapping("/joinMember.do")
 	public String join(MemberVO vo) {
+		long timeInMilliSeconds = new java.util.Date().getTime();
+		Date now = new Date(timeInMilliSeconds);
+		vo.setRegDate(now);
 	memberservice.insert(vo);
-	return "login.do";
+	return "list.do";
 	}
 	
 	//로그인
@@ -33,18 +39,19 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="/login.do", method=RequestMethod.POST)
-	public String login(MemberVO vo, Model model){
+	public String login(MemberVO vo, HttpSession session){
 		System.out.println("로그인 인증 처리");
 		MemberVO mvo = memberservice.select(vo);
-		model.addAttribute("member",mvo);
-		if(mvo != null) return "getBoardList.do";
+		session.setAttribute("member",mvo);
+		if(mvo != null) return "list.do";
 		else return "login.jsp";
 	}
 	//로그아웃
 	@RequestMapping(value = "/logout.do")
 	public String logout(HttpSession session) {
-		session.invalidate();
-		return "login.jsp";
+		session.setAttribute("member", null);
+		memberservice.logout(session);
+		return "list.do";
 	}
 	
 	@RequestMapping("/MyInfo.do")

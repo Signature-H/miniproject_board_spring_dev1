@@ -9,11 +9,10 @@ import com.dev1.springproject.board.BoardService;
 import com.dev1.springproject.board.BoardVO;
 
 @Service
-public class BoardServiceImpl implements BoardService{
+public class BoardServiceImpl implements BoardService {
 	@Autowired
 	private BoardDAO boardDAO;
-	
-	
+
 	public void insertBoard(BoardVO vo) {
 		boardDAO.insertBoard(vo);
 	}
@@ -22,6 +21,14 @@ public class BoardServiceImpl implements BoardService{
 		return boardDAO.getBoardList(vo);
 	}
 
+	@Override
+	public void updateBoard(BoardVO vo) {
+		boardDAO.updateBoard(vo);
+	}
 
+	@Override
+	public BoardVO getBoard(BoardVO vo) {
+		return boardDAO.getBoard(vo);
+	}
 
 }

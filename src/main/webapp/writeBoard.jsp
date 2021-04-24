@@ -17,14 +17,16 @@
 <u:isLogin>
 		<span id="login_join">
 				<a href="myPage.jsp"><input	type="button" value="마이페이지"></a>
-				<a href="logout.do"><button type="button">로그아웃</button></a>
+				<a href="logout.do"><input type="button" value="로그아웃"></a>
 		</span>
 		</u:isLogin>
 	</header>
 
 	<!-- 실제 body -->
 	<div id="b_contents">
-		<form action="getBoardList.jsp" method="post">
+		<form action="writeArticle.do" method="post">
+		<input type="hidden" name="id" value="${member.id}">
+		<input type="hidden" name="name" value="${member.name}">
 			<table border="1"
 				style="border-spacing: 0; padding: 0; margin: auto; width: 700px;">
 				<tr>
@@ -33,14 +35,14 @@
 				</tr>
 				<tr>
 					<td>작성자</td>
-					<td align="left">${member.name}</td>
+					<td align="left" >${member.name}</td>
 				</tr>
 				<tr>
 					<td>글 내용</td>
 					<td align="left"><textarea cols="30" rows="5" name="content"></textarea></td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="button" value="글 수정"></td>
+					<td colspan="2"><input type="submit" value="글 등록"></td>
 			</table>
 		</form>
 	</div>

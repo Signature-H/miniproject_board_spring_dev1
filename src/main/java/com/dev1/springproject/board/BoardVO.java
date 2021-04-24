@@ -1,8 +1,8 @@
 package com.dev1.springproject.board;
 
-import java.util.Date;
+import java.sql.Date;
 
-// DEV_BOARD TABLE
+// DEV_BOARD ���̺�
 public class BoardVO {
 
 	// NUMBER 

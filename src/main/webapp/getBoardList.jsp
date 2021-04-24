@@ -16,10 +16,11 @@
 	<!-- 상단 고정바 -->
 	<header>
 		<span id="icon"><a href="list.do">메인으로</a></span>
+		
 		<u:isLogin>
 		<span id="login_join">
 				<a href="myPage.jsp"><input	type="button" value="마이페이지"></a>
-				<a href="logout.do"><button type="button">로그아웃</button></a>
+				<a href="logout.do"><input type="button" value="로그아웃"></a>
 		</span>
 		</u:isLogin>
 		<u:notLogin>
@@ -27,17 +28,17 @@
 				value="로그인"></a> <a href="joinMember.jsp"><input
 				type="button" value="회원가입"></a> 
 				</span>
-		</u:notLogin>
+		</u:notLogin>		
 		
 	</header>
 
 <!-- 실제 body -->
 	<div id="b_contents">
 	<u:isLogin>
-	<a href="write.do"><input type="button" value="새 글 등록"></a><br/>
+	<a href="writeArticle.do"><input type="button" value="새 글 등록"></a><br/>
 	</u:isLogin>
 		<!-- 검색 -->
-		<form action="getBoardList.jsp">
+		<form action="listArticle.do">
 			<table border="1"
 				style="border-spacing: 0; padding: 0; margin: auto; width: 700px;">
 				<tr>
@@ -63,7 +64,7 @@
 			<c:forEach items="${boardList}" var="board" >
 				<tr>
 					<td>${board.number}</td>
-					<td align="left"><a href="getBoard.jsp">${board.title}</a></td>
+					<td align="left"><a href="getArticle.do?number=${board.number}">${board.title}</a></td>
 					<td>${board.name}</td>
 					<td>${board.regDate}</td>
 					<td>${board.read_cnt}</td>

@@ -1,5 +1,7 @@
 package com.dev1.springproject.member.impl;
 
+import javax.servlet.http.HttpSession;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -22,6 +24,12 @@ public class MemberDAO {
 	public void delete(MemberVO vo) {
 		System.out.println("멤버삭제");
 		mybatis.delete("MemberDAO.deleteMember",vo);
+	}
+	
+	public void logout(HttpSession session)
+	{
+		System.out.println("==> Call logout() method to MemberDAO");
+		session.invalidate();
 	}
 	
 }
