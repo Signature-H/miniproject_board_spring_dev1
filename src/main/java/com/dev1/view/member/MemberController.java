@@ -57,8 +57,7 @@ public class MemberController {
 	// logout
 	@RequestMapping("/logout.do")
 	public String logout(HttpSession session) {
-		session.setAttribute("member", null);
-		memberservice.logout(session);
+		session.invalidate();
 		return "list.do";
 	}
 

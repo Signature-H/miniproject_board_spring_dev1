@@ -1,7 +1,5 @@
 package com.dev1.springproject.member.impl;
 
-import javax.servlet.http.HttpSession;
-
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -25,11 +23,4 @@ public class MemberDAO {
 		System.out.println("==> Call changeMyInfo() method to mybatis");
 		mybatis.update("MemberDAO.changeMyInfo",vo);
 	}
-	
-	public void logout(HttpSession session)
-	{
-		System.out.println("==> Call logout() method to MemberDAO");
-		session.invalidate();
-	}
-	
 }
